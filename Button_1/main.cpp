@@ -13,7 +13,7 @@ Serial uart(PTE22, PTE23);
 
 char number[12] = "07962014080";
 
-
+Idiot test to make sure doesn't get a badge!!!
 void call_button(void)
 {
     printf("Call button\n");
@@ -36,13 +36,14 @@ void text_button(void)
     while(uart.readable()) {
         pc.putc(uart.getc());
     }
-
     if(gps.sample()) {
-        pc.printf("Seguimi phone notification, message sent from GPS location: %f, %f\n",  gps.latitude, gps.longitude);
-    } else {
-        //No GPS lock....pre-determined message with CEB long, lat
+        pc.printf("Seguimi phone notification message sent from GPS location: %f, %f\n",  gps.latitude, gps.longitude);
+    } 
+else {
+        //No GPS lock..pre-determined message with CEB long, lat
         pc.printf("Seguimi phone notification, message sent from GPS location: 52.20, 0.120.\n"); 
     }
+
 
     uart.printf("AT+CMGS=\"07962014080\"");   //end of line characters!!!
     uart.putc(0x0D);
