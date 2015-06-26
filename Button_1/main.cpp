@@ -13,7 +13,6 @@ Serial uart(PTE22, PTE23);
 
 char number[12] = "07962014080";
 
-Idiot test to make sure doesn't get a badge!!!
 void call_button(void)
 {
     printf("Call button\n");
